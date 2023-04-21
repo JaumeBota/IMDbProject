@@ -1,0 +1,64 @@
+openapi: 3.0.0
+info:
+  title: IMDb API
+  version: 1.0.0
+  description: An API to search for movies, TV shows, and people on IMDb
+servers:
+  - url: https://api.example.com
+paths:
+  /movie:
+    get:
+      summary: Search for movies, TV shows, and people on IMDb
+      parameters:
+        - name: MovieType
+          in: query
+          description: The type of search to perform (title, movie, series, name, episode, company, keyword, all)
+          required: false
+          schema:
+            type: string
+            enum: [title, movie, series, name, episode, company, keyword, all]
+        - name: expression
+          in: query
+          description: The search expression
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchData'
+        '400':
+          description: Bad request
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    SearchData:
+      type: object
+      properties:
+        searchType:
+          type: string
+        expression:
+          type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        errorMessage:
+          type: string
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+        resultType:
+          type: string
+        image:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
