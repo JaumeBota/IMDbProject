@@ -36,10 +36,10 @@ class MoviesControllerTest extends BaseTestsWithConstructors{
     @MethodSource("expressionArgument")
     void getAllMovieInformationTestByExpression(String expression){
 
-        List<Movies> expected = moviesController.getAllMovieInformationByExpression(expression);
+        List<Movies> listExpected = moviesController.getAllMovieInformationByExpression(expression);
 
         verify(moviesController).getAllMovieInformationByExpression(expression);
-        assertEquals(expected, moviesController.getAllMovieInformationByExpression(expression));
+        assertEquals(listExpected, moviesController.getAllMovieInformationByExpression(expression));
     }
 
    static Stream<Arguments> expressionArgument(){
