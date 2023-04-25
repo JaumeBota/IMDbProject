@@ -2,10 +2,19 @@ package com.traingft.imdb.jpa.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import org.springframework.data.annotation.Id;
+
 import com.traingft.imdb.dto.SearchResult;
 
+@Entity
+@Table(name="MOVIES")
 public class MoviesEntity {
     
+    @Id
+    int id;
     String searchtype;
     String expression;
     List<SearchResult> results;

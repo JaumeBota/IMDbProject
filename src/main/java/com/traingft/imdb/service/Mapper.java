@@ -3,7 +3,9 @@ package com.traingft.imdb.service;
 import org.springframework.stereotype.Component;
 
 import com.traingft.imdb.dto.Movies;
+import com.traingft.imdb.dto.SearchResult;
 import com.traingft.imdb.jpa.model.MoviesEntity;
+import com.traingft.imdb.jpa.model.SearchResultEntity;
 
 import org.modelmapper.ModelMapper;
 
@@ -19,5 +21,9 @@ public class Mapper {
 
     public Movies toMoviesDTO(MoviesEntity entity) {
 		return mapper.map(entity, Movies.class);
+	}
+
+	public SearchResult toSearchResultDTO(SearchResultEntity entity){
+		return mapper.map(entity,SearchResult.class);
 	}
 }

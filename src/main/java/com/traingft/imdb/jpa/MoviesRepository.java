@@ -9,7 +9,7 @@ import com.traingft.imdb.jpa.model.MoviesEntity;
 
 public interface MoviesRepository extends JpaRepository<MoviesEntity,String> {
     
-    @Query("from Movies p where p.expression=:expression")
+    @Query("from MOVIES p where p.expression=:expression")
     List<MoviesEntity> findAllMovieInformationByExpression(String expression);
 
 }

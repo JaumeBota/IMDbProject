@@ -9,6 +9,10 @@ public class Movies {
     String expression;
     List<SearchResult> results;
     String errorMessage;
+
+    public Movies(){
+        
+    }
     
     public Movies(String searchtype, String expression, List<SearchResult> results, String errorMessage) {
         this.searchtype = searchtype;
